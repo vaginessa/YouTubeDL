@@ -82,13 +82,22 @@ void MainWindow::fFinishDownload(){
     ui->PB_dl->setEnabled(true);
     ui->PB_find->setEnabled(true);
     ui->LB_update->setEnabled(true);
-    //add context
+        if (context.length() > 0){
+        QMessageBox *res = new QMessageBox(this);
+        res->setStyleSheet("QLabel{min-width: 700px;font-size: 14px;}");
+        res->setText("Formats of the video: ");
+        res->setInformativeText(context);
+        res->exec();
+        /*
+         * TODO: add context window
+        */
+    }
 }
 void MainWindow::readOutput(){
-    this->statusBar()->showMessage(process->readAllStandardOutput());
+    this->statusBar()->showMessage(QString::fromLocal8Bit(process->readAllStandardOutput()));
 }
 void MainWindow::fReadOutput(){
-    QString a = fProcess->readAllStandardOutput();
+    QString a = QString::fromLocal8Bit(fProcess->readAllStandardOutput());
     context.append(a);
     this->statusBar()->showMessage(a);
 }
@@ -112,14 +121,20 @@ void MainWindow::clearURL(){
 
 // Download Functions
 void MainWindow::on_PB_dl_clicked(){
-    if(ui->CB_isList->isChecked()){
-        arg2py = " -o \""+QDir::homePath()+"/Videos/%(playlist_index)s-%(title)s%(format)s.%(ext)s\"";
-        which2dl();
-        process->start("youtube-dl.exe"+arg2py);
+    if(ui->PTE_url->toPlainText().length()>8){
+        if(ui->CB_isList->isChecked()){
+            arg2py = " -o \""+QDir::homePath()+"/Videos/%(playlist_index)s-%(title)s%(format)s.%(ext)s\"";
+            which2dl();
+            process->start("youtube-dl.exe"+arg2py);
+        }else{
+            arg2py = " --no-playlist -o \""+QDir::homePath()+"/Videos/%(title)s%(format)s.%(ext)s\"";
+            which2dl();
+            process->start("youtube-dl.exe"+arg2py);
+        }
     }else{
-        arg2py = " --no-playlist -o \""+QDir::homePath()+"/Videos/%(title)s%(format)s.%(ext)s\"";
-        which2dl();
-        process->start("youtube-dl.exe"+arg2py);
+        QMessageBox::warning(this, "URL is not valid!",
+                             "Please enter valid URL to download!",
+                             QMessageBox::Cancel);
     }
 }
 void MainWindow::which2dl(){
@@ -134,7 +149,13 @@ void MainWindow::which2dl(){
 
 // Find Resolutions
 void MainWindow::on_PB_find_clicked(){
-    context.clear();
-    arg2py = " --no-playlist -F \""+ui->PTE_url->toPlainText()+"\"";
-    fProcess->start("youtube-dl.exe"+arg2py);
+    if(ui->PTE_url->toPlainText().length()>8){
+        context.clear();
+        arg2py = " --no-playlist -F \""+ui->PTE_url->toPlainText()+"\"";
+        fProcess->start("youtube-dl.exe"+arg2py);
+    }else{
+        QMessageBox::warning(this, "URL is not valid!",
+                             "Please enter valid URL to find resolution!",
+                             QMessageBox::Cancel);
+    }
 }
