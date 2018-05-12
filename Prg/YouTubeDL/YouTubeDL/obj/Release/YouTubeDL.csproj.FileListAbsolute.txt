@@ -1,0 +1,10 @@
+C:\Users\Forrest\Documents\GitHub\YouTubeDL\Prg\YouTubeDL\YouTubeDL\bin\Release\YouTubeDL.exe.config
+C:\Users\Forrest\Documents\GitHub\YouTubeDL\Prg\YouTubeDL\YouTubeDL\bin\Release\YouTubeDL.exe
+C:\Users\Forrest\Documents\GitHub\YouTubeDL\Prg\YouTubeDL\YouTubeDL\bin\Release\YouTubeDL.pdb
+C:\Users\Forrest\Documents\GitHub\YouTubeDL\Prg\YouTubeDL\YouTubeDL\obj\Release\YouTubeDL.Form1.resources
+C:\Users\Forrest\Documents\GitHub\YouTubeDL\Prg\YouTubeDL\YouTubeDL\obj\Release\YouTubeDL.Properties.Resources.resources
+C:\Users\Forrest\Documents\GitHub\YouTubeDL\Prg\YouTubeDL\YouTubeDL\obj\Release\YouTubeDL.csproj.GenerateResource.cache
+C:\Users\Forrest\Documents\GitHub\YouTubeDL\Prg\YouTubeDL\YouTubeDL\obj\Release\YouTubeDL.csproj.CoreCompileInputs.cache
+C:\Users\Forrest\Documents\GitHub\YouTubeDL\Prg\YouTubeDL\YouTubeDL\obj\Release\YouTubeDL.exe
+C:\Users\Forrest\Documents\GitHub\YouTubeDL\Prg\YouTubeDL\YouTubeDL\obj\Release\YouTubeDL.pdb
+C:\Users\Forrest\Documents\GitHub\YouTubeDL\Prg\YouTubeDL\YouTubeDL\obj\Release\YouTubeDL.csprojAssemblyReference.cache
